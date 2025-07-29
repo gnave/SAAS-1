@@ -34,10 +34,9 @@ class Spectrum:     # A class to describe the experimental data
     data            # All of the data from the old .dat files
     response        # Response function calculated from spectra taken at same time
 
-    def read_spectrum # A function to either read the old .hdr and .dat files,
-                    # or to read in the hdf5 file. If it reads old style files
-                    # it should convert the to hdf5, unless there is an existing
-                    # hdf5 file, in which case it should ask what to do.
+    def read_from_fits # A function to read FITS files and add them to the hdf5 file.
+                    
+    def read_from_nso # A function to read the old .hdr and .dat files and add them to the hdf5 file.
 
     def write_hdf5  # A function to write everything out to a new hdf5 files
 
@@ -54,8 +53,7 @@ class Spectrum:     # A class to describe the experimental data
 
 class EnergyLevel:
     species         # The atom and ionization stage (e.g. FeII)
-    key             # Some common key to link all the levels from the various
-                    # sources together? Is there a better way of doing this?
+    key             # A common key to link all the levels from the various places together.
     config          # Configuration
     term            # Term in appropriate coupling scheme
     J_value         # J value of the level
@@ -64,6 +62,7 @@ class EnergyLevel:
     level_unc       # The uncertainty of the level in cm-1
     HFS_A           # Hyperfine structure parameter A in 0.001 cm-1
     HFS_B           # Hyperfine structure parameter B in 0.001 cm-1
+    lifetime        # Lifetime of the level in ns.
 
     def level_match # Match the energy levels from two or more different sources,
                     # e.g. ASD, Kurucz, or Raassen
